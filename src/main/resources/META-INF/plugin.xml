@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>ru.spbau.farutin.anti_cp_task_plugin</id>
+    <name>Anti Copy Paste</name>
+    <vendor email="vfarut@gmail.com">Vadim Farutin</vendor>
+
+    <description><![CDATA[
+    This plugin adds button to the toolbar to show AST for selected piece of code.<br>
+    There is an alert message shown when user pastes text into editor.<br>
+    ]]></description>
+
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <copyPastePreProcessor implementation="ru.spbau.farutin.anti_cp_task_plugin.AntiCPPreProcessor"/>
+    </extensions>
+
+    <actions>
+        <action id="ru.spbau.farutin.anti_cp_task_plugin.ASTWindow"
+                class="ru.spbau.farutin.anti_cp_task_plugin.AstAction"
+                text="AST for selected code"
+                description="Shows AST for selected code"
+                icon="AntiCPPluginIcons.AST_ACTION">
+            <add-to-group group-id="MainToolBar" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
